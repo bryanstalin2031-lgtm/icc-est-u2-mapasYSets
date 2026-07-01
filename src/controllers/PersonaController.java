@@ -20,7 +20,7 @@ public class PersonaController {
             }
         });
         for (Persona persona : personas) {
-            if (persona.getEdad() > edad) {
+            if (persona.getEdad() >= edad) {
                 personasFiltadras.add(persona);
             }
         }
@@ -32,7 +32,7 @@ public class PersonaController {
     
     personasAgrupadas.put("JOVEN", new LinkedHashSet<>());
     personasAgrupadas.put("ADULTO", new LinkedHashSet<>());
-    personasAgrupadas.put("ADULTO MAYOR", new LinkedHashSet<>());
+    personasAgrupadas.put("MAYOR", new LinkedHashSet<>());
 
     for (Persona persona : personas) {
         String primerNombre = persona.getNombre().split(" ")[0];
@@ -42,7 +42,7 @@ public class PersonaController {
         } else if (persona.getEdad() < 60) {
             personasAgrupadas.get("ADULTO").add(primerNombre); 
         } else {
-            personasAgrupadas.get("ADULTO MAYOR").add(primerNombre);
+            personasAgrupadas.get("MAYOR").add(primerNombre);
         }
     }
     
